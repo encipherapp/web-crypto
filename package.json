@@ -1,5 +1,5 @@
 {
-  "name": "web-crypto",
+  "name": "@encipher/web-crypto",
   "version": "1.0.0",
   "description": "A promised based easy to use wrapper over Web Crypto APIs",
   "main": "index.js",
