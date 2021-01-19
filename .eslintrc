@@ -1,3 +1,15 @@
 {
-  "extends": ["airbnb-typescript-prettier"]
+  "extends": ["airbnb-typescript-prettier"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".ts", ".js", ".json"]
+      }
+    }
+  }
 }
