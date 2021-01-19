@@ -1,0 +1,25 @@
+{
+  "name": "web-crypto",
+  "version": "1.0.0",
+  "description": "A promised based easy to use wrapper over Web Crypto APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/encipherapp/web-crypto.git"
+  },
+  "keywords": [
+    "crypto",
+    "web",
+    "webcrypto",
+    "encryption",
+    "javascript"
+  ],
+  "author": "Shirshendu Bhowmick",
+  "bugs": {
+    "url": "https://github.com/encipherapp/web-crypto/issues"
+  },
+  "homepage": "https://github.com/encipherapp/web-crypto#readme"
+}
