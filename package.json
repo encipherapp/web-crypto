@@ -6,7 +6,8 @@
   "module": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --progress"
+    "build": "webpack --config webpack.config.js --progress",
+    "types": "tsc"
   },
   "repository": {
     "type": "git",
