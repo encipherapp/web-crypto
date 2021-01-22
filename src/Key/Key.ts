@@ -33,7 +33,7 @@ class Key {
   constructor(
     algorithmObj: RsaHashedKeyGenParams | EcKeyGenParams | DhKeyGenParams,
     extractable = true,
-    keyUsage: (keyof typeof keyUsagesMap)[],
+    keyUsage?: (keyof typeof keyUsagesMap)[],
   ) {
     this.algorithmObj = algorithmObj;
     if (
@@ -48,7 +48,7 @@ class Key {
       };
     }
     this.extractable = extractable;
-    this.keyUsage = keyUsage;
+    this.keyUsage = keyUsage || ['encrypt', 'decrypt', 'sign', 'verify'];
   }
 
   generateKey(): Promise<CryptoKeyPair | CryptoKey> {
