@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A promised based easy to use wrapper over Web Crypto APIs",
   "main": "dist/webCrypto.js",
-  "module": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --config webpack.config.js --progress --mode development",
