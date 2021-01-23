@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js --progress",
-    "build:example": "webpack --config examples/webpack.config.js",
-    "start": "webpack serve --config examples/webpack.config.js",
+    "build:example": "npm run build && webpack --config examples/webpack.config.js",
+    "start": "npm run build && webpack serve --config examples/webpack.config.js",
     "types": "tsc"
   },
   "repository": {
