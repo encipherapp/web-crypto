@@ -9,6 +9,10 @@ class Cipher {
 
   defaultDecryptionKey: CryptoKey | undefined;
 
+  static invalidKeyError = new Error(
+    'Default key and local key both are undefined',
+  );
+
   constructor(
     algorithmObj: AlgorithmObj,
     defaultEncryptionKey?: CryptoKey,
@@ -19,11 +23,17 @@ class Cipher {
     this.defaultDecryptionKey = defaultDecryptionKey;
   }
 
+  static isValidKeyAvailable(defaultKey?: CryptoKey, key?: CryptoKey): boolean {
+    if (defaultKey === undefined && key === undefined) {
+      return false;
+    }
+
+    return true;
+  }
+
   encrypt(data: ArrayBuffer, key?: CryptoKey): Promise<ArrayBuffer> {
-    if (this.defaultEncryptionKey === undefined && key === undefined) {
-      return Promise.reject(
-        new Error('Default key and local key both are undefined'),
-      );
+    if (!Cipher.isValidKeyAvailable(this.defaultEncryptionKey, key)) {
+      return Promise.reject(Cipher.invalidKeyError);
     }
     return crypto.encrypt(
       this.algorithmObj,
@@ -33,6 +43,10 @@ class Cipher {
   }
 
   decrypt(chipherText: ArrayBuffer, key?: CryptoKey): Promise<ArrayBuffer> {
+    if (!Cipher.isValidKeyAvailable(this.defaultDecryptionKey, key)) {
+      return Promise.reject(Cipher.invalidKeyError);
+    }
+
     return crypto.encrypt(
       this.algorithmObj,
       (key || this.defaultDecryptionKey) as CryptoKey,
