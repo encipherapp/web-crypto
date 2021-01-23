@@ -19,18 +19,23 @@ class Cipher {
     this.defaultDecryptionKey = defaultDecryptionKey;
   }
 
-  encrypt(key: CryptoKey, data: ArrayBuffer): Promise<ArrayBuffer> {
+  encrypt(data: ArrayBuffer, key?: CryptoKey): Promise<ArrayBuffer> {
+    if (this.defaultEncryptionKey === undefined && key === undefined) {
+      return Promise.reject(
+        new Error('Default key and local key both are undefined'),
+      );
+    }
     return crypto.encrypt(
       this.algorithmObj,
-      this.defaultEncryptionKey || key,
+      (key || this.defaultEncryptionKey) as CryptoKey,
       data,
     );
   }
 
-  decrypt(key: CryptoKey, chipherText: ArrayBuffer): Promise<ArrayBuffer> {
+  decrypt(chipherText: ArrayBuffer, key?: CryptoKey): Promise<ArrayBuffer> {
     return crypto.encrypt(
       this.algorithmObj,
-      this.defaultDecryptionKey || key,
+      (key || this.defaultDecryptionKey) as CryptoKey,
       chipherText,
     );
   }
