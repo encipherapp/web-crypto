@@ -1,12 +1,12 @@
-import Key, {
-  RsaKeyGenerationAlgorithmsMap,
-  RsaKeyHashFunctionsMap,
+import KeyGenerator, {
+  rsaKeyGenerationAlgorithmsMap,
+  rsaKeyHashFunctionsMap,
   keyUsagesMap,
-} from './KeyGenerator/KeyGenerator';
+} from './KeyGenerator';
 
 export {
-  Key,
-  RsaKeyGenerationAlgorithmsMap,
-  RsaKeyHashFunctionsMap,
+  KeyGenerator,
+  rsaKeyGenerationAlgorithmsMap,
+  rsaKeyHashFunctionsMap,
   keyUsagesMap,
 };

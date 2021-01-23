@@ -1,12 +1,12 @@
 const crypto = window.crypto.subtle;
 
-export const RsaKeyGenerationAlgorithmsMap = {
+export const rsaKeyGenerationAlgorithmsMap = {
   'RSASSA-PKCS1-v1_5': 'RSASSA-PKCS1-v1_5',
   'RSA-PSS': 'RSA-PSS',
   'RSA-OAEP': 'RSA-OAEP',
 };
 
-export const RsaKeyHashFunctionsMap = {
+export const rsaKeyHashFunctionsMap = {
   'SHA-256': 'SHA-256',
   'SHA-384': 'SHA-384',
   'SHA-512': 'SHA-512',
@@ -37,8 +37,8 @@ class Key {
   ) {
     this.algorithmObj = algorithmObj;
     if (
-      RsaKeyGenerationAlgorithmsMap[
-        algorithmObj.name as keyof typeof RsaKeyGenerationAlgorithmsMap
+      rsaKeyGenerationAlgorithmsMap[
+        algorithmObj.name as keyof typeof rsaKeyGenerationAlgorithmsMap
       ]
     ) {
       this.algorithmObj = {
