@@ -6,7 +6,8 @@
   "module": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js --progress",
+    "build:dev": "webpack --config webpack.config.js --progress --mode development",
+    "build": "webpack --config webpack.config.js --progress --mode production",
     "build:example": "npm run build && webpack --config examples/webpack.config.js",
     "start": "npm run build && webpack serve --config examples/webpack.config.js",
     "types": "tsc"

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   resolve: {
     extensions: ['.ts', '.js'],
   },
 
-  mode: 'production',
   entry: './src/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -26,4 +26,5 @@ module.exports = {
     ],
   },
   devtool: 'source-map',
+  plugins: [new CleanWebpackPlugin()],
 };
