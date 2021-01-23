@@ -2,7 +2,7 @@ import Key, {
   RsaKeyGenerationAlgorithmsMap,
   RsaKeyHashFunctionsMap,
   keyUsagesMap,
-} from './Key/Key';
+} from './KeyGenerator/KeyGenerator';
 
 export {
   Key,
