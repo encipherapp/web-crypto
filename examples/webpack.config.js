@@ -11,7 +11,7 @@ module.exports = {
       '@': path.resolve(__dirname, '../src'),
     },
   },
-  entry: ['./examples/src/index.ts'],
+  entry: ['regenerator-runtime', './examples/src/index.ts'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: '[name].bundle.js',
