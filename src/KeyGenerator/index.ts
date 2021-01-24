@@ -12,7 +12,7 @@ export const rsaKeyHashFunctionsMap = {
   'SHA-512': 'SHA-512',
 };
 
-export const keyUsagesMap = {
+export const keyUsagesMap: { [key: string]: KeyUsage } = {
   encrypt: 'encrypt',
   decrypt: 'decrypt',
   sign: 'sign',
@@ -28,12 +28,12 @@ class KeyGenerator {
 
   extractable: boolean;
 
-  keyUsage: (keyof typeof keyUsagesMap)[];
+  keyUsage: KeyUsage[];
 
   constructor(
     algorithmObj: RsaHashedKeyGenParams | EcKeyGenParams | DhKeyGenParams,
     extractable = true,
-    keyUsage?: (keyof typeof keyUsagesMap)[],
+    keyUsage?: KeyUsage[],
   ) {
     this.algorithmObj = algorithmObj;
     if (
