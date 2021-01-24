@@ -2,9 +2,9 @@ import KeyGenerator, {
   rsaKeyGenerationAlgorithmsMap,
   rsaKeyHashFunctionsMap,
   keyUsagesMap,
-} from './KeyGenerator';
-import Signature from './Signature';
-import Cipher from './Cipher';
+} from './constructors/KeyGenerator';
+import Signature from './constructors/Signature';
+import Cipher from './constructors/Cipher';
 
 const KeyGeneratorMaps = {
   rsaKeyGenerationAlgorithmsMap,
