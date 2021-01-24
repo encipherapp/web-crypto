@@ -88,3 +88,32 @@ export async function wrapKeyWithAesCbc256(
     return Promise.reject(err);
   }
 }
+
+export async function unwrapKeyWithAesCbc256(
+  passphrase: string,
+  wrappedKey: ArrayBuffer,
+  format = 'pkcs8',
+): Promise<CryptoKey> {
+  try {
+    const pbkdf2Key = await generatePbkdf2FromPassphrase(passphrase);
+    const derivedAesCbc256Key = await deriveKey(pbkdf2Key);
+    const unwrappedKey = await cryptoSubtle.unwrapKey(
+      format,
+      wrappedKey,
+      derivedAesCbc256Key,
+      {
+        name: 'AES-CBC',
+        iv: new Uint8Array(16),
+      },
+      {
+        name: 'RSA-OAEP',
+        hash: 'SHA-256',
+      },
+      true,
+      ['decrypt'],
+    );
+    return unwrappedKey;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+}
