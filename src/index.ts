@@ -6,7 +6,11 @@ import KeyGenerator, {
 import Signature from './constructors/Signature';
 import Cipher from './constructors/Cipher';
 
-import services from './services';
+import {
+  generatePbkdf2FromPassphrase,
+  deriveKey,
+  wrapKeyWithAesCbc256,
+} from './services';
 
 const KeyGeneratorMaps = {
   rsaKeyGenerationAlgorithmsMap,
@@ -14,6 +18,12 @@ const KeyGeneratorMaps = {
   keyUsagesMap,
 };
 
-export { KeyGenerator, KeyGeneratorMaps, Signature, Cipher };
-
-export default services;
+export {
+  KeyGenerator,
+  KeyGeneratorMaps,
+  Signature,
+  Cipher,
+  generatePbkdf2FromPassphrase,
+  deriveKey,
+  wrapKeyWithAesCbc256,
+};

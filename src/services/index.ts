@@ -1,5 +1,7 @@
-import * as keyGenerationServices from './keyGeneration/keyGeneration';
+import {
+  generatePbkdf2FromPassphrase,
+  deriveKey,
+  wrapKeyWithAesCbc256,
+} from './keyGeneration/keyGeneration';
 
-export default {
-  ...keyGenerationServices,
-};
+export { generatePbkdf2FromPassphrase, deriveKey, wrapKeyWithAesCbc256 };
