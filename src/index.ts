@@ -6,6 +6,8 @@ import KeyGenerator, {
 import Signature from './constructors/Signature';
 import Cipher from './constructors/Cipher';
 
+import services from './services';
+
 const KeyGeneratorMaps = {
   rsaKeyGenerationAlgorithmsMap,
   rsaKeyHashFunctionsMap,
@@ -13,3 +15,5 @@ const KeyGeneratorMaps = {
 };
 
 export { KeyGenerator, KeyGeneratorMaps, Signature, Cipher };
+
+export default services;
