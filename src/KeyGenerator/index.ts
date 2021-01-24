@@ -23,7 +23,7 @@ export const keyUsagesMap = {
   unwrapKey: 'unwrapKey',
 };
 
-class Key {
+class KeyGenerator {
   algorithmObj: RsaHashedKeyGenParams | EcKeyGenParams | DhKeyGenParams;
 
   extractable: boolean;
@@ -60,4 +60,4 @@ class Key {
   }
 }
 
-export default Key;
+export default KeyGenerator;
