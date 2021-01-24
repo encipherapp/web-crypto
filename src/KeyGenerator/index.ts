@@ -1,3 +1,5 @@
+import { DefaultKeyUsage } from '@/constants';
+
 const crypto = window.crypto.subtle;
 
 export const rsaKeyGenerationAlgorithmsMap = {
@@ -48,7 +50,7 @@ class KeyGenerator {
       };
     }
     this.extractable = extractable;
-    this.keyUsage = keyUsage || ['encrypt', 'decrypt', 'sign', 'verify'];
+    this.keyUsage = keyUsage || DefaultKeyUsage;
   }
 
   generateKey(): Promise<CryptoKeyPair | CryptoKey> {
