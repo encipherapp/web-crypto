@@ -7,6 +7,9 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.ts', '.js'],
+    alias: {
+      '@': path.resolve(__dirname, '../src'),
+    },
   },
   entry: ['./examples/src/index.ts'],
   output: {
