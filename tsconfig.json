@@ -29,5 +29,6 @@
     "declarationDir": "./dist",
     "declaration": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.js"]
+  "include": ["src/**/*.ts", "**/*.js"],
+  "exclude": ["node_modules", "dist"]
 }
