@@ -1,3 +1,5 @@
+import ExportedKey from '@/constructors/ExportedKey/ExportedKey';
+
 const cryptoSubtle = window.crypto.subtle;
 
 const encoder = new TextEncoder();
@@ -12,7 +14,7 @@ const defaultKeyDerivationAlgorithm: Pbkdf2Params = {
   iterations: 250000,
 };
 
-const algorithmToFormatMap: { [key: string]: string } = {
+const algorithmToFormatMap: { [key: string]: 'raw' } = {
   'AES-CBC': 'raw',
   'AES-CTR': 'raw',
   'AES-GCM': 'raw',
@@ -68,22 +70,38 @@ export function deriveKey(
 export async function wrapKeyWithAesCbc256(
   passphrase: string,
   keyToBeWrapped: CryptoKey,
-): Promise<ArrayBuffer> {
+): Promise<ExportedKey> {
+  const wrappingAlgorithm: AesCbcParams = {
+    name: 'AES-CBC',
+    iv: new Uint8Array(16),
+  };
+  const wrappedKeyFormat: 'raw' | 'pkcs8' = algorithmToFormatMap[
+    keyToBeWrapped.algorithm.name
+  ]
+    ? algorithmToFormatMap[keyToBeWrapped.algorithm.name]
+    : 'pkcs8';
+
   try {
     const pbkdf2Key = await generatePbkdf2FromPassphrase(passphrase);
     const derivedAesCbc256Key = await deriveKey(pbkdf2Key);
     const wrappedKey = await cryptoSubtle.wrapKey(
-      algorithmToFormatMap[keyToBeWrapped.algorithm.name]
-        ? algorithmToFormatMap[keyToBeWrapped.algorithm.name]
-        : 'pkcs8',
+      wrappedKeyFormat,
       keyToBeWrapped,
       derivedAesCbc256Key,
+      wrappingAlgorithm,
+    );
+    const key = new ExportedKey(
+      wrappedKey,
+      keyToBeWrapped.algorithm,
+      keyToBeWrapped.type,
+      keyToBeWrapped.usages,
       {
-        name: 'AES-CBC',
-        iv: new Uint8Array(16),
+        isWrapped: true,
+        algorithm: wrappingAlgorithm,
+        format: wrappedKeyFormat,
       },
     );
-    return wrappedKey;
+    return key;
   } catch (err) {
     return Promise.reject(err);
   }
@@ -91,26 +109,22 @@ export async function wrapKeyWithAesCbc256(
 
 export async function unwrapKeyWithAesCbc256(
   passphrase: string,
-  wrappedKey: ArrayBuffer,
-  format = 'pkcs8',
+  wrappedKey: ExportedKey,
 ): Promise<CryptoKey> {
+  if (!wrappedKey.wrappingInfo.isWrapped) {
+    return Promise.reject(new Error('Given key object is not wrapped'));
+  }
   try {
     const pbkdf2Key = await generatePbkdf2FromPassphrase(passphrase);
     const derivedAesCbc256Key = await deriveKey(pbkdf2Key);
     const unwrappedKey = await cryptoSubtle.unwrapKey(
-      format,
-      wrappedKey,
+      wrappedKey.wrappingInfo.format,
+      wrappedKey.key,
       derivedAesCbc256Key,
-      {
-        name: 'AES-CBC',
-        iv: new Uint8Array(16),
-      },
-      {
-        name: 'RSA-OAEP',
-        hash: 'SHA-256',
-      },
+      wrappedKey.wrappingInfo.algorithm,
+      wrappedKey.algorithm,
       true,
-      ['decrypt'],
+      wrappedKey.usages,
     );
     return unwrappedKey;
   } catch (err) {
