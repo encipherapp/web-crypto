@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/encipherapp/web-crypto.git"
   },
-  "license": "GPL-3.0",
+  "license": "MIT",
   "files": [
     "dist/*"
   ],
