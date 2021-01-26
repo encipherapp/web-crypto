@@ -67,6 +67,11 @@ export function deriveKey(
   );
 }
 
+/**
+ * Wrap a crypto key with AES-CBC-256, key derived from PBKDF2 passphrase
+ * @param passphrase Passphrase which will be used to derive key
+ * @param keyToBeWrapped The crypto key object to be wrapped
+ */
 export async function wrapKeyWithAesCbc256(
   passphrase: string,
   keyToBeWrapped: CryptoKey,
@@ -107,6 +112,11 @@ export async function wrapKeyWithAesCbc256(
   }
 }
 
+/**
+ * Unwrap a key which was wrapped using AES-CBC-256
+ * @param passphrase Passphrase which will be used to derive key for unwrapping
+ * @param wrappedKey The ExportedKey object which needs to be unwrapped
+ */
 export async function unwrapKeyWithAesCbc256(
   passphrase: string,
   wrappedKey: ExportedKey,
