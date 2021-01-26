@@ -1,6 +1,6 @@
 # Web Crypto
 
-## A promised based easy to use wrapper and services built using Web Crypto APIs
+### A promised based easy to use wrapper and services built using Web Crypto APIs
 
 **NOTE: This is a WIP library, APIs may change drastically till we release a stable version.**
 
