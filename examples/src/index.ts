@@ -3,6 +3,7 @@ import {
   wrapKeyWithAesCbc256,
   KeyGenerator,
   KeyGeneratorMaps,
+  Cipher,
 } from '../../src';
 
 const algorithm: RsaHashedKeyGenParams = {
@@ -39,6 +40,26 @@ let rsaKeyPair: CryptoKeyPair;
 
     console.log(originalKey);
     console.log(decryptedKey);
+
+    const encryptionAlgorith: RsaOaepParams = {
+      name: 'RSA-OAEP',
+    };
+
+    const cipher = new Cipher(
+      encryptionAlgorith,
+      rsaKeyPair.publicKey,
+      rsaKeyPair.privateKey,
+    );
+
+    const encoder = new TextEncoder();
+    const decoder = new TextDecoder();
+
+    console.log(rsaKeyPair.privateKey);
+
+    const cipherText = await cipher.encrypt(encoder.encode('Hello World'));
+    console.log(decoder.decode(cipherText));
+    const plainText = await cipher.decrypt(cipherText, unwrappedKey);
+    console.log(decoder.decode(plainText));
   })
   .catch((err) => {
     console.log(err);
