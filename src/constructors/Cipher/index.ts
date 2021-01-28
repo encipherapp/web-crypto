@@ -47,7 +47,7 @@ class Cipher {
       return Promise.reject(Cipher.invalidKeyError);
     }
 
-    return crypto.encrypt(
+    return crypto.decrypt(
       this.algorithmObj,
       (key || this.defaultDecryptionKey) as CryptoKey,
       chipherText,
