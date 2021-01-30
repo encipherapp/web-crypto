@@ -15,6 +15,12 @@ For more information on Web Crypto API browser support, click [here](https://can
 ### Key Generations
 
 ```JavaScript
+import {
+  KeyGenerator,
+  KeyGeneratorMaps,
+} from '@encipher/web-crypto';
+
+
 // Generating a RSA key pair
 const keyAlgorithm = {
   name: KeyGeneratorMaps.rsaKeyGenerationAlgorithmsMap['RSA-OAEP'],
