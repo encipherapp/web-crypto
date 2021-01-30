@@ -4,7 +4,8 @@
 
 ```diff
 -! NOTE: This is a WIP library.
--! APIs may change drastically till we release a stable version. Please watch this repo for updates
+-! APIs may change drastically till we release a stable version.
+-! Please watch this repo for updates.
 ```
 
 The objective of this library is to provide some wrapper methods and services which are very easy to use to perform cryptographic operations in the browser.
