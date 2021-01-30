@@ -43,3 +43,28 @@ keyGen.generateKey().then(data => {
   rsaKeyPair2 = data;
 })
 ```
+
+### Encrypting a key with a passphrase
+
+It's often required that you need to export a private key, like for server side storage. Before that you want to encrypt the key with a passphrase.
+This library provides some utils functions to do that easily.
+
+Wrap a key with a AES-CBC-256 key derived using PBKDF2 and a passphrase
+
+```JavaScript
+import {
+  wrapKeyWithAesCbc256,
+} from '@encipher/web-crypto';
+
+
+const passphrase = "This is really a secret";
+
+let wrappedKey;
+
+wrapKeyWithAesCbc256(
+  passphrase,
+  rsaKeyPair.privateKey,
+).then((data) => {
+  wrappedKey = data
+});
+```
