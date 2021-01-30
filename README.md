@@ -65,6 +65,6 @@ wrapKeyWithAesCbc256(
   passphrase,
   rsaKeyPair.privateKey,
 ).then((data) => {
-  wrappedKey = data
+  wrappedKey = data;
 });
 ```
