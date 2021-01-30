@@ -2,7 +2,7 @@
 
 ### A promised based easy to use wrapper and services built using Web Crypto APIs
 
-**NOTE: This is a WIP library, APIs may change drastically till we release a stable version.**
+<span style="color:red; font-weight:bold;">NOTE: This is a WIP library, APIs may change drastically till we release a stable version. Please watch this repo for updates</span>
 
 The objective of this library is to provide some wrapper methods and services which are very easy to use to perform cryptographic operations in the browser.
 
@@ -68,3 +68,5 @@ wrapKeyWithAesCbc256(
   wrappedKey = data;
 });
 ```
+
+Many more comming soon...
