@@ -1,4 +1,4 @@
-import { unwrapKeyWithAesCbc256 } from '@/services/keyGeneration/keyGeneration';
+import { unwrapKeyWithAesCbc256 } from '@/utils/keyGeneration/keyGeneration';
 import {
   wrapKeyWithAesCbc256,
   KeyGenerator,

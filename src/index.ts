@@ -10,7 +10,7 @@ import {
   generatePbkdf2FromPassphrase,
   deriveKey,
   wrapKeyWithAesCbc256,
-} from './services';
+} from './utils';
 
 const KeyGeneratorMaps = {
   rsaKeyGenerationAlgorithmsMap,
