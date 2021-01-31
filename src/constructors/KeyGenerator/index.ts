@@ -2,19 +2,19 @@ import { DefaultKeyUsage } from '../../constants';
 
 const crypto = window.crypto.subtle;
 
-export const rsaKeyGenerationAlgorithmsMap = {
+const rsaKeyGenerationAlgorithmsMap = {
   'RSASSA-PKCS1-v1_5': 'RSASSA-PKCS1-v1_5',
   'RSA-PSS': 'RSA-PSS',
   'RSA-OAEP': 'RSA-OAEP',
 };
 
-export const rsaKeyHashFunctionsMap = {
+const rsaKeyHashFunctionsMap = {
   'SHA-256': 'SHA-256',
   'SHA-384': 'SHA-384',
   'SHA-512': 'SHA-512',
 };
 
-export const keyUsagesMap: { [key: string]: KeyUsage } = {
+const keyUsagesMap: { [key: string]: KeyUsage } = {
   encrypt: 'encrypt',
   decrypt: 'decrypt',
   sign: 'sign',
