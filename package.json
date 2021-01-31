@@ -8,8 +8,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --config webpack.config.js --progress --mode development && npm run types",
     "build": "webpack --config webpack.config.js --progress --mode production  && npm run types",
-    "build:example": "npm run build && webpack --config examples/webpack.config.js",
-    "start": "npm run build:dev && webpack serve --config examples/webpack.config.js",
     "types": "tsc  --project tsconfig.build.json",
     "test:types": "tsc"
   },
