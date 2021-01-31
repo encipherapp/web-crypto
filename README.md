@@ -14,7 +14,7 @@ This library internally uses Web Crypto browser APIs, so this library can't run 
 
 For more information on Web Crypto API browser support, click [here](https://caniuse.com/cryptography)
 
-For reporting any kind of issues please use the [issues](/issues) tracker. For general discussion, feature request use the [discussions](/discussions).
+For reporting any kind of issues please use the [issues](/../../issues) tracker. For general discussion, feature request use the [discussions](/../../discussions).
 
 ## Examples:
 
