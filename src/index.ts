@@ -1,3 +1,9 @@
+if (!window?.crypto?.subtle) {
+  throw new Error(
+    'Web Crypto API is not available. Make sure browser support is available and you are running it in secure (HTTPS) context',
+  );
+}
+
 export {
   default as KeyGenerator,
   KeyGeneratorMaps,
