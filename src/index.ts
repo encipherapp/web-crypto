@@ -1,31 +1,13 @@
-import KeyGenerator, {
-  rsaKeyGenerationAlgorithmsMap,
-  rsaKeyHashFunctionsMap,
-  keyUsagesMap,
+export {
+  default as KeyGenerator,
+  KeyGeneratorMaps,
 } from './constructors/KeyGenerator';
-import Signature from './constructors/Signature';
-import Cipher from './constructors/Cipher';
 
-import {
+export { default as Signature } from './constructors/Signature';
+export { default as Cipher } from './constructors/Cipher';
+export {
   generatePbkdf2FromPassphrase,
   deriveKey,
   wrapKeyWithAesCbc256,
   unwrapKeyWithAesCbc256,
 } from './utils';
-
-const KeyGeneratorMaps = {
-  rsaKeyGenerationAlgorithmsMap,
-  rsaKeyHashFunctionsMap,
-  keyUsagesMap,
-};
-
-export {
-  KeyGenerator,
-  KeyGeneratorMaps,
-  Signature,
-  Cipher,
-  generatePbkdf2FromPassphrase,
-  deriveKey,
-  wrapKeyWithAesCbc256,
-  unwrapKeyWithAesCbc256,
-};

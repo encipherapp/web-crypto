@@ -63,3 +63,9 @@ class KeyGenerator {
 }
 
 export default KeyGenerator;
+
+export const KeyGeneratorMaps = {
+  rsaKeyGenerationAlgorithmsMap,
+  rsaKeyHashFunctionsMap,
+  keyUsagesMap,
+};
