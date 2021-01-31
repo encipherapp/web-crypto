@@ -1,4 +1,4 @@
-import ExportedKey from '@/constructors/ExportedKey/ExportedKey';
+import ExportedKey from '../../constructors/ExportedKey/ExportedKey';
 
 const cryptoSubtle = window.crypto.subtle;
 

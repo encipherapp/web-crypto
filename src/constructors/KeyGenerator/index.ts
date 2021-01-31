@@ -1,4 +1,4 @@
-import { DefaultKeyUsage } from '@/constants';
+import { DefaultKeyUsage } from '../../constants';
 
 const crypto = window.crypto.subtle;
 

@@ -13,9 +13,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "src",
-    "paths": {
-      "@/*": ["./*"]
-    },
     "strictNullChecks": true,
     "alwaysStrict": true,
     "allowUnreachableCode": false,
