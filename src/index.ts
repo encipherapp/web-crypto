@@ -1,4 +1,4 @@
-if (!window?.crypto?.subtle) {
+if (!window.crypto?.subtle) {
   throw new Error(
     'Web Crypto API is not available. Make sure browser support is available and you are running it in secure (HTTPS) context',
   );
