@@ -38,6 +38,18 @@ class ExportedKey {
     this.usages = usages;
     this.wrappingInfo = wrappingInfo;
   }
+
+  // static toByteArray(hexString) {}
+
+  toHexString(): string {
+    const byteArray = new Uint8Array(this.key);
+    return Array.prototype.map
+      .call(byteArray, (byte) => {
+        // eslint-disable-next-line prefer-template, no-bitwise
+        return ('0' + (byte & 0xff).toString(16)).slice(-2);
+      })
+      .join('');
+  }
 }
 
 export default ExportedKey;
