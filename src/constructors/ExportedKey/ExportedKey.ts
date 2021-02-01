@@ -14,6 +14,9 @@ export interface WrappedInfo {
   format: 'raw' | 'pkcs8' | 'spki' | 'jwk';
 }
 
+/**
+ * A class containing an exported key (Array buffer) and it's corresponding method
+ */
 class ExportedKey {
   key: ArrayBuffer;
 
@@ -25,6 +28,14 @@ class ExportedKey {
 
   wrappingInfo: NonWrappedInfo | WrappedInfo;
 
+  /**
+   * Create a new exported key object
+   * @param key The key
+   * @param algorithm The algorithm object of the key
+   * @param type The key type
+   * @param usages Key usage
+   * @param wrappingInfo Object describing how the key was wrapped
+   */
   constructor(
     key: ArrayBuffer | string,
     algorithm: CryptoKey['algorithm'],
@@ -39,6 +50,10 @@ class ExportedKey {
     this.wrappingInfo = wrappingInfo;
   }
 
+  /**
+   * From hex string convert to array buffer
+   * @param hexString The hex string which needs to be converted
+   */
   static toByteArray(hexString: string): ArrayBuffer {
     const byteArray = new Uint8Array(hexString.length / 2);
     for (let i = 0; i < hexString.length; i += 2) {
@@ -47,6 +62,9 @@ class ExportedKey {
     return byteArray.buffer;
   }
 
+  /**
+   * Convert from array buffer to hex string
+   */
   toHexString(): string {
     const byteArray = new Uint8Array(this.key);
     return Array.prototype.map
