@@ -25,6 +25,9 @@ const keyUsagesMap: { [key: string]: KeyUsage } = {
   unwrapKey: 'unwrapKey',
 };
 
+/**
+ * A class for creating a key generator object
+ */
 class KeyGenerator {
   algorithmObj: RsaHashedKeyGenParams | EcKeyGenParams | DhKeyGenParams;
 
@@ -32,6 +35,12 @@ class KeyGenerator {
 
   keyUsage: KeyUsage[];
 
+  /**
+   * Create a new key generator object
+   * @param algorithmObj The algorithm object to be used for the key generation
+   * @param extractable Set to true of you need to export the key
+   * @param keyUsage Array of key usage option
+   */
   constructor(
     algorithmObj: RsaHashedKeyGenParams | EcKeyGenParams | DhKeyGenParams,
     extractable = true,
@@ -53,6 +62,9 @@ class KeyGenerator {
     this.keyUsage = keyUsage || DefaultKeyUsage;
   }
 
+  /**
+   * Generate a new key
+   */
   generateKey(): Promise<CryptoKeyPair | CryptoKey> {
     return crypto.generateKey(
       this.algorithmObj,
