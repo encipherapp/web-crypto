@@ -1,5 +1,10 @@
 # Web Crypto
 
+![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@encipher/web-crypto)
+![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@encipher/web-crypto)
+
+![NPM](https://img.shields.io/npm/l/@encipher/web-crypto)
+
 ### A promised based easy to use wrapper and services built using Web Crypto APIs
 
 ```diff
