@@ -75,4 +75,26 @@ wrapKeyWithAesCbc256(
 });
 ```
 
+### Encrypting & Decrypting a payload (With RSA key pair)
+
+```JavaScript
+const encryptionAlgorith = {
+    name: 'RSA-OAEP',
+  };
+
+// rsaKeyPair generated with KeyGenerator as shown above
+const cipher = new Cipher(
+  encryptionAlgorith,
+  rsaKeyPair.publicKey,
+  rsaKeyPair.privateKey,
+);
+
+const encoder = new TextEncoder();
+const decoder = new TextDecoder();
+
+const cipherText = await cipher.encrypt(encoder.encode('Hello World'));
+let plainText = await cipher.decrypt(cipherText);
+plainText = decoder.decode(plainText)
+```
+
 Many more comming soon...
