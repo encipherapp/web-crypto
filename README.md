@@ -16,6 +16,12 @@ For more information on Web Crypto API browser support, click [here](https://can
 
 For reporting any kind of issues please use the [issues](/../../issues) tracker. For general discussion, feature request use the [discussions](/../../discussions).
 
+## Installations
+
+```bash
+npm install @encipher/web-crypto --save
+```
+
 ## Examples:
 
 ### Key Generations
