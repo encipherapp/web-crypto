@@ -1,5 +1,6 @@
 # Web Crypto
 
+![npm (scoped)](https://img.shields.io/npm/v/@encipher/web-crypto)
 ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/min/@encipher/web-crypto)
 ![npm bundle size (scoped)](https://img.shields.io/bundlephobia/minzip/@encipher/web-crypto)
 
